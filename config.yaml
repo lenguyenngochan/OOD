@@ -1,0 +1,18 @@
+device: 'cuda'
+checkpoint_path: 'checkpoints/sptnet_cifar10.pth'
+prompt_type: 'all'
+num_classes: 10
+batch_size: 32
+num_workers: 4
+val_split: 0.2
+threshold_method: 'tpr'
+desired_tpr: 0.95
+
+ood_datasets:
+  svhn:
+    root: 'data/svhn'
+    download: true
+  dtd:
+    root: 'data/dtd'
+    split: 'test'
+    download: true
