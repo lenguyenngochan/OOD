@@ -11,7 +11,7 @@ class SPTNetWrapper(nn.Module):
         super().__init__()
         self.device = device
         
-        self.backbone - vits.__dict__['vit_base']()
+        self.backbone = vits.__dict__['vit_base']()
         self.prompter = self._build_prompter(prompt_type)
         state_dict = torch.load(checkpoint_path, map_location=device)
         
