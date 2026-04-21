@@ -66,9 +66,13 @@ def main():
     # Evaluate on OOD dataset
     all_ood_scores = []
     for name, ood_loader in ood_test_loaders.items():
-        print(f"\n Evaluating on OOD dataset: {name}")
-        metrics = pipeline.evaluate(test_loader, ood_loader)
-        print(f"AUROC: {metrics['AUROC']:.4f}, FPR95: {metrics['FPR95']:.4f}")   
+        print(f"Computing scores for OOD dataset: {name}")
+        ood_scores = pipeline.compute_scores_for_loader(ood_loader)
+        all_ood_scores.extend(ood_scores)
+
+    # Calculate metrics in all OOD datasets
+    metrics = pipeline.evaluate(test_loader, np.array(all_ood_scores))
+    print(f"Final combined AUROC: {metrics['auc']:.4f}, FPR95: {metrics['fpr95']:.4f}")
            
 if __name__ == "__main__":
     main()
