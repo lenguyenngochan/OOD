@@ -8,7 +8,7 @@ val_split: 0.2
 threshold_method: 'tpr'
 desired_tpr: 0.95
 
-ood_datasets:
+ood_config:
   svhn:
     root: 'data/svhn'
     download: true
