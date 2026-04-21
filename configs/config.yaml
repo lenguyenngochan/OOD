@@ -1,4 +1,5 @@
 device: 'cuda'
+dataset_name: 'cifar10'
 checkpoint_path: 'checkpoints/sptnet_cifar10.pth'
 prompt_type: 'all'
 num_classes: 10
